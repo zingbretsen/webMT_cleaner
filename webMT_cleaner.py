@@ -14,7 +14,7 @@ DESIRED_TIME_GAP = 15
 def read_file(input_file):
     if v > 2:
         with open(input_file, 'r', newline='') as fileObj:
-            mt_reader = csv.reader(fileObj, delimiter=", ", )
+            mt_reader = csv.reader(fileObj, delimiter=",", )
             for mtLine in mt_reader:
                 try:
                     if mtLine[0] != '':
@@ -25,7 +25,7 @@ def read_file(input_file):
                     mt_contents.append([])
     else:
         with open(input_file, 'r') as fileObj:
-            mt_reader = csv.reader(fileObj, delimiter=", ", )
+            mt_reader = csv.reader(fileObj, delimiter=",", )
             for mtLine in mt_reader:
                 try:
                     if mtLine[0] != '':
@@ -224,12 +224,12 @@ def write_csv(input_file, attempt=1):
     try:
         if v > 2:
             with open(input_file, 'w', newline='') as fileObj:
-                mt_writer = csv.writer(fileObj, delimiter=", ", )
+                mt_writer = csv.writer(fileObj, delimiter=",", )
                 for mtLine in mt_contents:
                     mt_writer.writerow(mtLine)
         else:
             with open(input_file, 'w') as fileObj:
-                mt_writer = csv.writer(fileObj, delimiter=", ", )
+                mt_writer = csv.writer(fileObj, delimiter=",", )
                 for mtLine in mt_contents:
                     mt_writer.writerow(mtLine)
     except IOError:
@@ -269,8 +269,8 @@ if __name__ == "__main__":
         #filePath = filePath.replace('\\', '/')
         mt_list = glob.glob(file_path + "/*.mt")
     print(mt_list)
-    if not os.path.exists(os.path.join(file_path, '/bad/')):
-        os.mkdir(os.path.join(file_path, '/bad/'))
+    if not os.path.exists(os.path.join(file_path, 'bad/')):
+        os.mkdir(os.path.join(file_path, 'bad/'))
     for mt_file in mt_list:
         print(mt_file)
         #if file already exists,  go on to next
